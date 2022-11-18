@@ -9,18 +9,22 @@ public class DBConnection {
 		String user = "root";
 		String passwd = "";
 	    private Connection conn;
-
+	    private static DBConnection dBConnection;
 	   
-	    public DBConnection() throws SQLException {
-			conn=DriverManager.getConnection(url, user,passwd);
+	    private DBConnection()  {
+			
 		}
-
 	    
-	    public Connection getConn() {
+	    public Connection getConn() throws SQLException {
+	    	conn=DriverManager.getConnection(url, user,passwd);
 			return conn;
 		}
-
-
+	    public static DBConnection getDBConnection() {
+	    	if (dBConnection == null) {
+	    		 dBConnection = new DBConnection();
+	    	}
+	    	return dBConnection;
+	    }
 		
 	
 }

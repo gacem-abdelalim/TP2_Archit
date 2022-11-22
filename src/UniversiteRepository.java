@@ -5,28 +5,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UniversiteRepository {
-	
-	
-	Universite GetById(int universityId) throws SQLException {
+public class UniversiteRepository implements IUnivRepo{
+	private IDBConnection BD;
+	@Override
+	public Universite GetById(int universityId) throws SQLException {
 		
-		DBConnection BD= new DBConnection();
-		Connection connect=BD.getConn(); 
+		BD= (DBConnection) DBConnection.getDBConnection();
+		Connection connect=BD.getConn();
 		Statement stmt = connect.createStatement();
-		System.out.println("LogBD : début recherche de id université dans la base de donnée");
+		System.out.println("LogBD : dï¿½but recherche de id universitï¿½ dans la base de donnï¿½e");
 		
 		String sql = "select * from universite where id_universite="+ universityId;
 		ResultSet rs = stmt.executeQuery(sql);
-		rs.next();	
+		rs.next();
 		TypePackage p=TypePackage.valueOf(rs.getString(3));
 		Universite u = new Universite (rs.getInt(1),rs.getString(2),p);
 			
-		System.out.println("LogBD : université récupérée");
+		System.out.println("LogBD : universitï¿½ rï¿½cupï¿½rï¿½e");
 		
 		connect.close();
 		return u;	
-	
 		
-	}	
-	
+		
+	}
 }

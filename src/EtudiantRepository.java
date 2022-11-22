@@ -4,14 +4,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
-	
-	
-	void add(Etudiant E) throws SQLException
+public class EtudiantRepository implements IEtudiantRepo {
+	private IDBConnection BD;
+	@Override
+	public void add(Etudiant E) throws SQLException
 	{
-
-		DBConnection BD= new DBConnection();
+		
+		BD= (DBConnection) DBConnection.getDBConnection();
 		Connection connect=BD.getConn();
+		
 		
 		Statement stmt = connect.createStatement();
 		String sql = "INSERT into etudiant values (" + E.getMatricule() + ",'" + E.getNom() + "','" + E.getPrenom() + "','" + E.getEmail() + "'," +E.getNbLivreMensuel_Autorise() + "," +E.getNbLivreEmprunte() + "," +E.getId_universite()+")";
@@ -23,12 +24,13 @@ public class EtudiantRepository {
 				System.out.println("log : Echec de l'ajout dans la BD de l'�tudiant  du Matricule" + E.getMatricule());
 			}
 		connect.close();
-	 }
+	}
 
-
-	boolean Exists(String email) throws SQLException	
+	@Override
+	public boolean Exists(String email) throws SQLException	
 	{
-		DBConnection BD= new DBConnection();
+		BD= (DBConnection) DBConnection.getDBConnection();
+		
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
@@ -44,10 +46,10 @@ public class EtudiantRepository {
 		connect.close();
 		return false;
 	}
-	
-	boolean Exists(int mat) throws SQLException	
+	@Override
+	public boolean Exists(int mat) throws SQLException	
 	{
-		DBConnection BD= new DBConnection();
+		BD = (DBConnection) DBConnection.getDBConnection();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();

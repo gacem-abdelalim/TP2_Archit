@@ -3,15 +3,21 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+	
 public class EtudiantService {
+	private IEtudiantRepo etudRepo;
+	private IUnivRepo univRepo;
 	
 	
-	boolean inscription (int matricule, String nom, String prenom, String email,String pwd, int id_universite) throws SQLException	
-	{
-		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
+	public EtudiantService(IEtudiantRepo etudRepo, IUnivRepo univRepo) {
+		this.etudRepo = etudRepo;
+		this.univRepo = univRepo;	
+	}
+	
+	boolean inscription ( int matricule, String nom, String prenom, String email,String pwd, int id_universite ) throws SQLException {
+
 	    Etudiant stud = new Etudiant(matricule, nom, prenom, email,pwd,id_universite);
-	    Universite univ=UnivRep.GetById(id_universite);
+	    Universite univ=this.univRepo.GetById(id_universite);
 	    
 	    System.out.println("Log: d�but de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
 	    
@@ -20,12 +26,12 @@ public class EtudiantService {
 	    	return false;
 	    }
 	    
-	    if (StudRep.Exists(matricule))
+	    if (etudRepo.Exists(matricule))
 	    {
 	        return false;
 	    }
 	    
-		if (StudRep.Exists(email))
+		if (etudRepo.Exists(email))
 	    {
 	        return false;
 	    }
@@ -38,10 +44,10 @@ public class EtudiantService {
 	     }
 	     else if (univ.getPack() == TypePackage.Premium)
 	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
+	     	 stud.setNbLivreMensuel_Autorise(10*2);
 	     }                           
 	     
-		 StudRep.add(stud);
+		 etudRepo.add(stud);
 		 System.out.println("Log: Fin de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
 		 return true;
 	    
@@ -50,20 +56,21 @@ public class EtudiantService {
 	
 	
 	
-
+	
 public ArrayList<Etudiant> GetEtudiantParUniversitye()
-{
+{	
     //...
 	return new ArrayList<>(4);
-}
-
+}	
+	
 public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
-{
+{   
     //...
 	return new ArrayList<>(4);
 	
 }
 
-
+    
 	
-}
+}   
+	

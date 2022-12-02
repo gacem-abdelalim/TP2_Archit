@@ -39,12 +39,14 @@ public class UniversiteRepository implements IUnivRepo{
 		Universite univ=this.GetById(universityId);
 		if (univ.getPack() == TypePackage.Standard)
 	     {
-			  
-	          return 10;
+			Pack typeUniv = new Standard();
+			return typeUniv.getNbLivreAutoriser();
 	     }
 	     else if (univ.getPack() == TypePackage.Premium)
 	     {
-	    	 return 20;
+			Pack typeUniv = new Premium();
+	    	return typeUniv.getNbLivreAutoriser();
+	    	 
 	     }
 		return 0;
 	}
@@ -54,12 +56,16 @@ public class UniversiteRepository implements IUnivRepo{
 		Universite univ=this.GetById(universityId);
 		if (univ.getPack() == TypePackage.Standard)
 	     {
-			  
-	          return 5;
+			
+			Pack typeUniv = new Standard();
+			
+			return typeUniv.getNbLivreBonus();
 	     }
 	     else if (univ.getPack() == TypePackage.Premium)
 	     {
-	    	 return 10;
+	    	 Pack typeUniv = new Standard();
+			 
+	    	 return typeUniv.getNbLivreBonus();
 	     }
 	return 0;
 	}

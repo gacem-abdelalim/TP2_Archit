@@ -39,13 +39,32 @@ public class UniversiteRepository implements IUnivRepo{
 		Universite univ=this.GetById(universityId);
 		if (univ.getPack() == TypePackage.Standard)
 	     {
+			  
 	          return 10;
 	     }
 	     else if (univ.getPack() == TypePackage.Premium)
 	     {
 	    	 return 20;
 	     }
-		
 		return 0;
 	}
+		
+	@Override
+	public int getNbLivreBonus(int universityId) throws SQLException, IOException{
+		Universite univ=this.GetById(universityId);
+		if (univ.getPack() == TypePackage.Standard)
+	     {
+			  
+	          return 5;
+	     }
+	     else if (univ.getPack() == TypePackage.Premium)
+	     {
+	    	 return 10;
+	     }
+	return 0;
+	}
+	
+	
+	
+	
 }

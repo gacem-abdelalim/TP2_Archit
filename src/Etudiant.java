@@ -70,6 +70,15 @@ public class Etudiant {
 		public void setNbLivreMensuel_Autorise(int nbLivreMensuel_Autorise) {
 			this.nbLivreMensuel_Autorise = nbLivreMensuel_Autorise;
 		}
+		
+		
+		public void AjouterBonus(int nbLivreBonus) {
+			
+			this.nbLivreMensuel_Autorise += nbLivreBonus;
+		
+		}
+
+
 
 
 		public int getNbLivreEmprunte() {

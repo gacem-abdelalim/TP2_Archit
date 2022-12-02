@@ -1,6 +1,6 @@
 
+import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -26,11 +26,26 @@ public class UniversiteRepository implements IUnivRepo{
 		TypePackage p=TypePackage.valueOf(rs.getString(3));
 		Universite u = new Universite (rs.getInt(1),rs.getString(2),p);
 			
-		affiche.outPut_Msg("LogBD : universit� r�cup�r�e");
+		affiche.outPut_Msg("LogBD : universite recupere");
 		
 		connect.close();
 		return u;	
 		
 		
+	}
+	
+	@Override
+	public int getNbLivreAutoriser(int universityId) throws SQLException, IOException{
+		Universite univ=this.GetById(universityId);
+		if (univ.getPack() == TypePackage.Standard)
+	     {
+	          return 10;
+	     }
+	     else if (univ.getPack() == TypePackage.Premium)
+	     {
+	    	 return 20;
+	     }
+		
+		return 0;
 	}
 }

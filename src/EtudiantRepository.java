@@ -63,7 +63,7 @@ public class EtudiantRepository implements IEtudiantRepo {
 		boolean rs = stmt.executeQuery(sql).next();
 		
 		if (rs){
-			affiche.outPut_Msg("logBD--- :etudiant avec ce matricule existe d�ja dans la BD  " + mat);
+			affiche.outPut_Msg("logBD--- :etudiant avec ce matricule existe deja dans la BD  " + mat);
 			connect.close();
 			return true;
 			}
@@ -71,5 +71,15 @@ public class EtudiantRepository implements IEtudiantRepo {
 		connect.close();
 		return false;
 	}
-
+	
+	@Override
+	public boolean VerificationMatriculeMail(Etudiant etud) throws SQLException {
+		String email = etud.getEmail();
+		boolean existMat = Exists(etud.getMatricule());
+		boolean existmail = Exists(email);
+		boolean veriFormatMail = ((email == null) || (email.length() == 0));
+		return (existMat || existmail || veriFormatMail);
+		
+	}
+	
 }

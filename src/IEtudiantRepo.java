@@ -8,6 +8,7 @@ public interface IEtudiantRepo {
 	
 	boolean Exists(int mat) throws SQLException;
 	
+	public boolean VerificationMatriculeMail(Etudiant etud) throws SQLException;
 	
 
 }

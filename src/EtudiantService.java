@@ -7,11 +7,13 @@ import java.util.ArrayList;
 public class EtudiantService {
 	private IEtudiantRepo etudRepo;
 	private IUnivRepo univRepo;
+	IJournal affiche;
 	
 	
-	public EtudiantService(IEtudiantRepo etudRepo, IUnivRepo univRepo) {
+	public EtudiantService(IEtudiantRepo etudRepo, IUnivRepo univRepo, IJournal affiche) {
 		this.etudRepo = etudRepo;
-		this.univRepo = univRepo;	
+		this.univRepo = univRepo;
+		this.affiche = affiche;
 	}
 	
 	boolean inscription ( int matricule, String nom, String prenom, String email,String pwd, int id_universite ) throws SQLException {
@@ -19,7 +21,8 @@ public class EtudiantService {
 	    Etudiant stud = new Etudiant(matricule, nom, prenom, email,pwd,id_universite);
 	    Universite univ=this.univRepo.GetById(id_universite);
 	    
-	    System.out.println("Log: d�but de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
+	    affiche.outPut_Msg("Log: debut de l'operation d'ajout de l'etudiant avec matricule "+matricule);
+	    
 	    
 	    if(email == null || email.length() == 0)
 	    {
@@ -48,7 +51,7 @@ public class EtudiantService {
 	     }                           
 	     
 		 etudRepo.add(stud);
-		 System.out.println("Log: Fin de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
+		 affiche.outPut_Msg("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+matricule);
 		 return true;
 	    
 		

@@ -18,10 +18,10 @@ public class MainApp {
 		IEtudiantRepo etudRepo = new EtudiantRepository(affiche);
 		IUnivRepo univRepo = new UniversiteRepository(affiche);
 		
-
+		
 		EtudiantService serv= new EtudiantService(etudRepo, univRepo, affiche);
 		try {
-			serv.inscription(123, "adlipm,", "gnacem", "geuenkne@gmail.com","xxxx", 123);
+			serv.inscription(22, "alimwz", "gacezxm", "guenez@xgmail.com","xxxx", 123);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

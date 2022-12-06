@@ -1,8 +1,5 @@
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 	
 public class EtudiantService {
@@ -30,6 +27,7 @@ public class EtudiantService {
 	    }
 	    
 		 stud.setNbLivreMensuel_Autorise(univRepo.getNbLivreAutoriser(stud.getId_universite()));
+		 AjouterNblivreBonus(stud);
 		 etudRepo.add(stud);
 		 affiche.outPut_Msg("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+matricule);
 		 return true;
@@ -37,7 +35,9 @@ public class EtudiantService {
 		
 	}
 	
-	
+	public void AjouterNblivreBonus(Etudiant stud) throws SQLException, IOException {
+		stud.AjouterBonus(univRepo.getNbLivreBonus(stud.getId_universite()));
+	}
 	
 	
 public ArrayList<Etudiant> GetEtudiantParUniversitye()

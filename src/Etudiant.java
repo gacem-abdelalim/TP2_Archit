@@ -64,6 +64,8 @@ public class Etudiant {
 
 		public int getNbLivreMensuel_Autorise() {
 			return nbLivreMensuel_Autorise;
+
+			
 		}
 
 

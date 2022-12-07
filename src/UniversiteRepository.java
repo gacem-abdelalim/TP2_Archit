@@ -63,7 +63,7 @@ public class UniversiteRepository implements IUnivRepo{
 	     }
 	     else if (univ.getPack() == TypePackage.Premium)
 	     {
-	    	 Pack typeUniv = new Standard();
+	    	 Pack typeUniv = new Premium();
 			 
 	    	 return typeUniv.getNbLivreBonus();
 	     }

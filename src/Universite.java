@@ -1,7 +1,7 @@
 
 public class Universite {
 
- private int i_univ; //identifiant unique de l'université
+ private int i_univ; //identifiant unique de l'universitï¿½
  private String nom;
  private TypePackage pack;
  

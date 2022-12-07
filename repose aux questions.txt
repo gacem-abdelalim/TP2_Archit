@@ -1,0 +1,2 @@
+10-On ajoute une methode au classe EtudiantRepositore pour verifier l'existance de l'etudiant et la formule de mail, et pour savoir le pack choisit on fait une methode dans la classe UniversityRepository qui fait choisit le pack a partir de l'id de l'université où l'etudiant etudier.
+15-

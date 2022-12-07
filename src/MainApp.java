@@ -21,7 +21,7 @@ public class MainApp {
 
 		EtudiantService serv= new EtudiantService(etudRepo, univRepo, affiche);
 		try {
-			serv.inscription(22, "alimwz", "gacezxm", "guenez@xgmail.com","xxxx", 123);
+			serv.inscription(42, "alfimwhz", "gabcefzxm", "guenvezf@xgmail.com","xxxx", 123);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

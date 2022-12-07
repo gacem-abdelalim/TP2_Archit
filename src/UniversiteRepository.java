@@ -36,38 +36,30 @@ public class UniversiteRepository implements IUnivRepo{
 	
 	@Override
 	public int getNbLivreAutoriser(int universityId) throws SQLException, IOException{
+		
 		Universite univ=this.GetById(universityId);
-		if (univ.getPack() == TypePackage.Standard)
-	     {
-			Pack typeUniv = new Standard();
-			return typeUniv.getNbLivreAutoriser();
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-			Pack typeUniv = new Premium();
-	    	return typeUniv.getNbLivreAutoriser();
-	    	 
-	     }
-		return 0;
+		TypePackage typePackage = univ.getPack();
+		Abstractfactory factory = new ConcreteFactory();
+		Pack typeUniv = factory.getPackageUniv(typePackage);
+
+		return typeUniv.getNbLivreAutoriser();
+
 	}
 		
 	@Override
-	public int getNbLivreBonus(int universityId) throws SQLException, IOException{
+	public int getNbLivreBonus(int universityId) throws SQLException, IOException
+	{
+		
 		Universite univ=this.GetById(universityId);
-		if (univ.getPack() == TypePackage.Standard)
-	     {
-			
-			Pack typeUniv = new Standard();
-			
-			return typeUniv.getNbLivreBonus();
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 Pack typeUniv = new Premium();
+		TypePackage typePackage = univ.getPack();
+		Abstractfactory factory = new ConcreteFactory();
+		Pack typeUniv = factory.getPackageUniv(typePackage);
+
+		return typeUniv.getNbLivreBonus();
+
 			 
-	    	 return typeUniv.getNbLivreBonus();
-	     }
-	return 0;
+	    	 
+
 	}
 	
 	

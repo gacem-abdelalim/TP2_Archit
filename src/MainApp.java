@@ -5,7 +5,7 @@ import java.util.List;
 public class MainApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		IJournal journal1 = new JournalDateClass();
 		IJournal journal2 = new JournalEcran();
 		IJournal journal3 = new JournalFile();
@@ -21,7 +21,7 @@ public class MainApp {
 
 		EtudiantService serv= new EtudiantService(etudRepo, univRepo, affiche);
 		try {
-			serv.inscription(22, "alimwz", "gacezxm", "guenez@xgmail.com","xxxx", 123);
+			serv.inscription(4244, "alfimwjhzz", "gabnzcefzxm", "guenvenzzf@xgmail.com","xxxx", 123);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

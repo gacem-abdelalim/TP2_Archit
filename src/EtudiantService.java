@@ -28,6 +28,7 @@ public class EtudiantService {
 	    
 		 stud.setNbLivreMensuel_Autorise(univRepo.getNbLivreAutoriser(stud.getId_universite()));
 		 AjouterNblivreBonus(stud);
+
 		 etudRepo.add(stud);
 		 affiche.outPut_Msg("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+matricule);
 		 return true;

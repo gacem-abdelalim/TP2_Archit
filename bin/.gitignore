@@ -1,0 +1,13 @@
+/Abstractfactory.class
+/AfficheMessage.class
+/ConcreteFactory.class
+/IDBConnection.class
+/IEtudiantRepo.class
+/IJournal.class
+/IUnivRepo.class
+/JournalDateClass.class
+/JournalEcran.class
+/JournalFile.class
+/Pack.class
+/Premium.class
+/Standard.class

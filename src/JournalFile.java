@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class JournalFile extends IJournal{
+public class JournalFile implements IJournal{
 
 	@Override
 	public void outPut_Msg(String message) {

@@ -1,5 +1,5 @@
 
-public class JournalEcran extends IJournal{
+public class JournalEcran implements IJournal{
 
 	@Override
 	public void outPut_Msg(String message) {

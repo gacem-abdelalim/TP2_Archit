@@ -1,6 +1,6 @@
 import java.text.SimpleDateFormat;  
 import java.util.Date;
-public class JournalDateClass extends IJournal{
+public class JournalDateClass implements IJournal{
 	
 	@Override
 	public void outPut_Msg(String message) {

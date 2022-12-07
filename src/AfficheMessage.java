@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class AfficheMessage extends IJournal{
+public class AfficheMessage implements IJournal{
 	List<IJournal> listJournal=new ArrayList<IJournal>();  
 	public AfficheMessage(List<IJournal> listJournal) {
 		this.listJournal = listJournal;

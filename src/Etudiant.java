@@ -73,9 +73,8 @@ public class Etudiant {
 		
 		
 		public void AjouterBonus(int nbLivreBonus) {
-			
 			this.nbLivreMensuel_Autorise += nbLivreBonus;
-		
+			
 		}
 
 

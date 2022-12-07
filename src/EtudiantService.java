@@ -17,6 +17,8 @@ public class EtudiantService {
 	boolean inscription ( int matricule, String nom, String prenom, String email,String pwd, int id_universite ) throws SQLException, IOException {
 
 	    Etudiant stud = new Etudiant(matricule, nom, prenom, email,pwd,id_universite);
+
+		
 	    Universite univ=this.univRepo.GetById(id_universite);
 	    
 	    affiche.outPut_Msg("Log: debut de l'operation d'ajout de l'etudiant avec matricule "+matricule);
